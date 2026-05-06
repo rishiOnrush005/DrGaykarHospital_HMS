@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="min-h-[70vh] flex flex-col items-center justify-center p-4">
+    <div class="w-full max-w-sm animate__animated animate__zoomIn">
+        <div class="text-center mb-8">
+            <div class="bg-rose-50 w-16 h-16 rounded-2xl flex items-center justify-center text-rose-500 mx-auto mb-4">
+                <i class="bi bi-shield-lock-fill text-3xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-slate-900">{% trans "Security Gate" %}</h2>
+            <p class="text-slate-500 text-sm font-medium">{% trans "Enter your 4-digit PIN to access DB Admin." %}</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-slate-200 border border-slate-100">
+            <form method="post" class="space-y-6">
+                {% csrf_token %}
+                <div class="text-center">
+                    <input type="password" name="pin" maxlength="4" autofocus
+                           class="w-full text-center text-4xl tracking-[1rem] bg-slate-50 border-none rounded-2xl py-5 px-4 focus:ring-4 focus:ring-rose-100 transition-all font-mono font-bold"
+                           placeholder="0000" inputmode="numeric">
+                </div>
+                <button type="submit" class="w-full bg-slate-900 text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-rose-600 transition-all">
+                    {% trans "Verify and Unlock" %}
+                </button>
+            </form>
+        </div>
+        
+        <div class="mt-8 text-center px-4">
+            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-relaxed">
+                {% trans "This area contains sensitive hospital data and system configuration tools." %}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

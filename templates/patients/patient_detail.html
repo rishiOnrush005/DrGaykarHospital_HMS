@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto space-y-8 pb-10">
+    <!-- Breadcrumb & Header -->
+    <div class="flex justify-between items-center px-2">
+        <a href="{% url 'dashboard' %}" class="text-indigo-600 font-bold text-sm flex items-center gap-2">
+            <i class="bi bi-arrow-left"></i> {% trans "Back" %}
+        </a>
+        <span class="bg-slate-100 text-slate-500 px-4 py-1.5 rounded-full font-mono text-xs font-bold">
+            {{ patient.patient_id }}
+        </span>
+    </div>
+
+    <!-- Section A: Patient Summary Card -->
+    <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="space-y-2">
+            <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">{{ patient.name }}</h1>
+            <div class="flex flex-wrap gap-3">
+                <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-xl text-xs font-bold uppercase">{{ patient.get_gender_display }}</span>
+                <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-xl text-xs font-bold uppercase">{{ patient.age }} {% trans "Years" %}</span>
+                <span class="bg-rose-50 text-rose-700 px-3 py-1 rounded-xl text-xs font-bold uppercase">{{ patient.blood_group }}</span>
+            </div>
+        </div>
+        <div class="text-slate-500 font-medium">
+            <p class="flex items-center gap-2"><i class="bi bi-telephone text-indigo-400"></i> {{ patient.phone }}</p>
+            <p class="flex items-center gap-2 mt-1"><i class="bi bi-geo-alt text-indigo-400"></i> {{ patient.village }}</p>
+        </div>
+    </div>
+
+    <!-- Section B: Primary Action -->
+    <div class="px-2">
+        <a href="{% url 'record_visit' patient.uuid %}" class="w-full bg-emerald-500 text-white font-bold py-5 rounded-[2rem] shadow-lg shadow-emerald-100 flex justify-center items-center gap-3 hover:bg-emerald-600 transition-all">
+            <i class="bi bi-plus-circle-fill"></i> {% trans "Record New Visit" %}
+        </a>
+    </div>
+
+    <!-- Section C: Visit History -->
+    <div class="space-y-6">
+        <h2 class="text-2xl font-extrabold text-slate-900 px-2">{% trans "Visit History" %}</h2>
+        
+        <div class="space-y-4">
+            {% for visit in visits %}
+                <div class="bg-white overflow-hidden rounded-[2.5rem] shadow-sm border border-slate-100">
+                    <!-- Card Header: Metadata -->
+                    <div class="bg-slate-50/50 px-8 py-4 border-b border-slate-50 flex justify-between items-center">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                            {{ visit.visited_on|date:"d M Y" }} • {{ visit.visited_on|time:"H:i" }}
+                        </span>
+                        <span class="text-xs font-bold text-indigo-600 italic">
+                            {% if visit.attended_by %}
+                                Dr. {{ visit.attended_by.get_full_name|default:visit.attended_by.username }}
+                            {% else %}
+                                {% trans "No Doctor Assigned" %}
+                            {% endif %}
+                        </span>
+                    </div>
+                    
+                    <!-- Card Body: Clinical Info -->
+                    <div class="p-8 space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-1">
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{% trans "Symptoms" %}</p>
+                                <p class="text-slate-800 font-medium leading-relaxed">{{ visit.symptoms|default:"--" }}</p>
+                            </div>
+                            <div class="space-y-1">
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{% trans "Diagnosis" %}</p>
+                                <p class="text-slate-800 font-medium leading-relaxed">{{ visit.diagnosis|default:"--" }}</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-2">
+                            <p class="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">{% trans "Prescription" %}</p>
+                            <p class="text-slate-900 font-bold whitespace-pre-line">{{ visit.prescription_text|default:"--" }}</p>
+                        </div>
+
+                        <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-100 flex items-center justify-between gap-4">
+                            <div>
+                                <p class="text-[10px] font-bold text-emerald-600 uppercase tracking-widest">{% trans "Next Visit Date" %}</p>
+                                <p class="text-slate-900 font-extrabold mt-1">
+                                    {% if visit.follow_up_date %}
+                                        {{ visit.follow_up_date|date:"d M Y" }}
+                                    {% else %}
+                                        --
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <i class="bi bi-calendar2-check text-2xl text-emerald-500"></i>
+                        </div>
+
+                        {% if visit.prescription_photo %}
+                        <div class="pt-2">
+                            <a href="{{ visit.prescription_photo.url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-600 bg-emerald-50 px-4 py-2 rounded-xl">
+                                <i class="bi bi-image"></i> {% trans "View Handwritten Prescription" %}
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="py-12 text-center text-slate-400 font-medium italic">
+                    {% trans "No visit history found for this patient." %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

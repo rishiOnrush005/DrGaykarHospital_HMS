@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="space-y-8">
+    <!-- Header Section -->
+    <div class="px-2 animate__animated animate__fadeIn">
+        <h1 class="text-3xl font-bold tracking-tight text-slate-900">
+            {% trans "Good Day, Doctor" %}
+        </h1>
+        <p class="text-slate-500 font-medium">{% trans "Welcome back, Dr." %} {{ user.username }}</p>
+    </div>
+
+    <!-- Stats & Actions Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Main Pulse Card -->
+        <div class="md:col-span-1 bg-indigo-600 p-8 rounded-[2.5rem] text-white shadow-xl shadow-indigo-100 flex flex-col justify-between h-56 relative overflow-hidden">
+            <i class="bi bi-activity text-8xl absolute -right-4 -top-4 opacity-10"></i>
+            <div>
+                <h6 class="text-indigo-200 font-bold uppercase tracking-wider text-xs">{% trans "Today's Completed" %}</h6>
+                <h1 class="text-6xl font-bold mt-2">{{ today_visit_count }}</h1>
+            </div>
+            <p class="text-sm text-indigo-100 font-medium">{% trans "Total examinations done today" %}</p>
+        </div>
+
+        <!-- Primary Action Cards -->
+        <div class="md:col-span-2 grid grid-cols-2 gap-4">
+            <a href="{% url 'patient_register' %}" class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm flex flex-col justify-between hover:scale-[1.02] transition-all group">
+                <div class="bg-indigo-50 w-12 h-12 rounded-2xl flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                    <i class="bi bi-person-plus-fill fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-800 text-lg">{% trans "Add Patient" %}</h3>
+                    <p class="text-xs text-slate-400">{% trans "New registration" %}</p>
+                </div>
+            </a>
+            
+            <a href="{% url 'patient_list' %}" class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm flex flex-col justify-between hover:scale-[1.02] transition-all group">
+                <div class="bg-emerald-50 w-12 h-12 rounded-2xl flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                    <i class="bi bi-search fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-800 text-lg">{% trans "Find Patient" %}</h3>
+                    <p class="text-xs text-slate-400">{% trans "Search directory" %}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Visit Queue -->
+    <div class="space-y-4">
+        <div class="flex justify-between items-center px-2">
+            <h3 class="text-xl font-bold text-slate-800">{% trans "Visit Queue" %}</h3>
+            <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-bold">{{ pending_visits.count }} {% trans "Waiting" %}</span>
+        </div>
+        
+        <div class="grid grid-cols-1 gap-3">
+            {% for visit in pending_visits %}
+                <div class="bg-white p-4 md:p-6 rounded-[2rem] border border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-slate-50 w-12 h-12 rounded-2xl flex items-center justify-center text-slate-400 font-bold">
+                            {{ forloop.counter }}
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800">{{ visit.patient.name }}</h4>
+                            <p class="text-xs text-slate-400 font-medium uppercase tracking-tighter">
+                                ID: {{ visit.patient.patient_id }} • {{ visit.weight|default:"--" }}kg • {{ visit.temp|default:"--" }}°F
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-slate-400 mr-2"><i class="bi bi-clock"></i> {{ visit.visited_on|timesince }}</span>
+                        <a href="{% url 'complete_visit' visit.uuid %}" class="bg-indigo-600 text-white px-6 py-3 rounded-2xl font-bold text-sm shadow-lg shadow-indigo-100 hover:bg-indigo-700 transition-all">
+                            {% trans "Examine" %}
+                        </a>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="py-16 text-center bg-white rounded-[2.5rem] border border-slate-100">
+                    <div class="bg-slate-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-200">
+                        <i class="bi bi-people fs-1"></i>
+                    </div>
+                    <p class="text-slate-400 font-medium">{% trans "Queue is currently empty" %}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Secondary Actions -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-2">
+        <a href="{% url 'staff_list' %}" class="flex flex-col items-center gap-2 p-4 rounded-3xl bg-slate-100 text-slate-500 hover:bg-slate-200 transition-colors">
+            <i class="bi bi-people-fill"></i>
+            <span class="text-xs font-bold">{% trans "Staff" %}</span>
+        </a>
+        <a href="{% url 'backup_manager' %}" class="flex flex-col items-center gap-2 p-4 rounded-3xl bg-slate-100 text-slate-500 hover:bg-slate-200 transition-colors">
+            <i class="bi bi-shield-lock-fill"></i>
+            <span class="text-xs font-bold">{% trans "Security" %}</span>
+        </a>
+    </div>
+</div>
+{% endblock %}

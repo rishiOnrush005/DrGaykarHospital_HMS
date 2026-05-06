@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="max-w-xl mx-auto space-y-8 animate__animated animate__fadeIn">
+    <div class="px-2">
+        <a href="{% url 'patient_list' %}" class="text-indigo-600 font-bold text-sm mb-4 inline-flex items-center gap-1">
+            <i class="bi bi-arrow-left"></i> {% trans "Back to Patients" %}
+        </a>
+        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">{% trans "Import Patients" %}</h1>
+        <p class="text-slate-500 font-medium">{% trans "Upload a UTF-8 CSV file with the required patient columns." %}</p>
+    </div>
+
+    <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-slate-100">
+        <form method="post" enctype="multipart/form-data" class="space-y-6">
+            {% csrf_token %}
+            <div class="space-y-3">
+                <label class="text-sm font-bold text-slate-600">{% trans "Select CSV File" %}</label>
+                <input type="file" name="csv_file" accept=".csv,text/csv" required
+                       class="w-full bg-white border-2 border-dashed border-slate-200 rounded-3xl p-6 text-sm font-bold text-slate-400 cursor-pointer hover:border-indigo-400 hover:text-indigo-600 transition-all">
+            </div>
+
+            <button type="submit" class="w-full bg-slate-900 text-white font-bold py-5 rounded-[2rem] shadow-xl hover:bg-indigo-600 transition-all flex justify-center items-center gap-2">
+                <i class="bi bi-upload"></i> {% trans "Import CSV" %}
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

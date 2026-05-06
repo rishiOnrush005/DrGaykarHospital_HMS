@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto space-y-8 animate__animated animate__fadeIn pb-24">
+    <!-- Header -->
+    <div class="flex items-center justify-between bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm">
+        <div class="flex items-center gap-5">
+            <div class="bg-indigo-600 w-14 h-14 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-indigo-100">
+                <i class="bi bi-person-plus text-2xl"></i>
+            </div>
+            <div>
+                <h1 class="text-2xl font-black text-slate-900 leading-tight">{% trans "Patient Registration" %}</h1>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">{% trans "New patient record" %}</p>
+            </div>
+        </div>
+        <a href="{% url 'dashboard' %}" class="text-slate-300 hover:text-rose-500 transition-colors">
+            <i class="bi bi-x-circle-fill text-3xl"></i>
+        </a>
+    </div>
+
+    <form method="post" class="space-y-6">
+        {% csrf_token %}
+
+        <!-- Group 1: Basic Profile -->
+        <div class="bg-indigo-50/30 rounded-[2.5rem] p-1 border border-indigo-50">
+            <div class="bg-white p-8 rounded-[2.3rem] shadow-sm space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-50 pb-5">
+                    <span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-xs font-black">1</span>
+                    <h3 class="font-black text-slate-800 uppercase tracking-tight">{% trans "Personal Information" %}</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-6 gap-6 pt-2">
+                    <div class="md:col-span-4">
+                        {% include 'components/input.html' with field=form.name label="Patient Full Name" %}
+                    </div>
+                    <div class="md:col-span-1">
+                        {% include 'components/input.html' with field=form.age label="Age" %}
+                    </div>
+                    <div class="md:col-span-1">
+                        {% include 'components/input.html' with field=form.gender label="Gender" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Group 2: Contact Details -->
+        <div class="bg-emerald-50/30 rounded-[2.5rem] p-1 border border-emerald-50">
+            <div class="bg-white p-8 rounded-[2.3rem] shadow-sm space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-50 pb-5">
+                    <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-xs font-black">2</span>
+                    <h3 class="font-black text-slate-800 uppercase tracking-tight">{% trans "Contact and Address" %}</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-2">
+                    {% include 'components/input.html' with field=form.phone label="Phone Number" %}
+                    {% include 'components/input.html' with field=form.village label="Village / Area" %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Group 3: Medical Summary -->
+        <div class="bg-rose-50/30 rounded-[2.5rem] p-1 border border-rose-50">
+            <div class="bg-white p-8 rounded-[2.3rem] shadow-sm space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-50 pb-5">
+                    <span class="bg-rose-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-xs font-black">3</span>
+                    <h3 class="font-black text-slate-800 uppercase tracking-tight">{% trans "Medical Information" %}</h3>
+                </div>
+
+                <div class="max-w-xs pt-2">
+                    {% include 'components/input.html' with field=form.blood_group label="Blood Group" %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="fixed bottom-0 left-0 right-0 p-6 bg-white/60 backdrop-blur-xl border-t border-slate-100 z-50 md:relative md:bg-transparent md:border-none md:p-0">
+            <button type="submit" class="w-full max-w-4xl mx-auto bg-slate-900 text-white font-black py-6 rounded-[2rem] shadow-2xl shadow-slate-300 hover:bg-indigo-600 active:scale-[0.98] transition-all flex justify-center items-center gap-4 text-xl tracking-tight">
+                <i class="bi bi-shield-check text-2xl"></i>
+                {% trans "Complete Registration and Save" %}
+            </button>
+        </div>
+    </form>
+</div>
+
+<style>
+    /* Ultra-clean Input Refinement */
+    input, select {
+        width: 100% !important;
+        background-color: #f1f5f9 !important; /* slate-100 */
+        border: 2px solid transparent !important;
+        border-radius: 1.25rem !important;
+        padding: 1.25rem 1.5rem !important;
+        font-weight: 700 !important;
+        font-size: 1.05rem !important;
+        color: #1e293b !important;
+        transition: all 0.2s ease !important;
+    }
+    
+    input:focus, select:focus {
+        background-color: #ffffff !important;
+        border-color: #6366f1 !important; /* indigo-500 */
+        box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.1) !important;
+        transform: translateY(-2px);
+    }
+
+    label {
+        font-size: 0.75rem !important;
+        letter-spacing: 0.05em !important;
+        margin-bottom: 0.5rem !important;
+    }
+</style>
+{% endblock %}

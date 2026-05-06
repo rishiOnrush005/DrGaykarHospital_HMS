@@ -1,0 +1,25 @@
+{% load i18n %}
+<div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 flex justify-between items-center hover:shadow-md transition-all">
+    <div class="space-y-1">
+        <h3 class="font-bold text-slate-800 text-lg">{{ patient.name }}</h3>
+        <div class="flex items-center gap-3 text-sm text-slate-500 font-medium">
+            <span class="bg-slate-100 px-2 py-0.5 rounded-lg text-[10px] font-bold">{% trans "Patient ID" %}: {{ patient.patient_id }}</span>
+            <span>{{ patient.village }}</span>
+        </div>
+        <p class="text-sm text-slate-400 font-bold pt-1"><i class="bi bi-telephone mr-1"></i> {{ patient.phone }}</p>
+    </div>
+    <div class="flex flex-col gap-2 shrink-0">
+        {% if user.role == 'doctor' %}
+            <a href="{% url 'record_visit' patient.uuid %}" class="w-full text-center bg-emerald-50 text-emerald-700 px-4 py-2.5 rounded-2xl font-bold text-sm hover:bg-emerald-600 hover:text-white transition-all">
+                {% trans "New Visit" %}
+            </a>
+            <a href="{% url 'patient_detail' patient.uuid %}" class="w-full text-center bg-slate-50 text-slate-600 px-4 py-2.5 rounded-2xl font-bold text-sm hover:bg-slate-200 transition-all">
+                {% trans "Records" %}
+            </a>
+        {% else %}
+            <a href="{% url 'record_visit' patient.uuid %}" class="w-full text-center bg-indigo-600 text-white px-6 py-4 rounded-2xl font-bold text-sm hover:bg-indigo-700 shadow-lg shadow-indigo-100 transition-all">
+                {% trans "Add to Queue" %}
+            </a>
+        {% endif %}
+    </div>
+</div>

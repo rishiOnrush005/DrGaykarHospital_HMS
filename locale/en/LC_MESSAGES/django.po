@@ -1,0 +1,347 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-20 11:44+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/models.py:7
+msgid "Doctor"
+msgstr ""
+
+#: accounts/models.py:8
+msgid "Receptionist"
+msgstr ""
+
+#: accounts/models.py:9
+msgid "Staff"
+msgstr ""
+
+#: patients/models.py:6
+msgid "Male"
+msgstr ""
+
+#: patients/models.py:7
+msgid "Female"
+msgstr ""
+
+#: patients/models.py:8
+msgid "Other"
+msgstr ""
+
+#: patients/models.py:12 templates/dashboard/doctor_dashboard.html:71
+msgid "Patient ID"
+msgstr ""
+
+#: patients/models.py:13 templates/dashboard/doctor_dashboard.html:72
+#: templates/dashboard/staff_dashboard.html:49
+#: templates/patients/patient_detail.html:13
+#: templates/patients/patient_list.html:27
+msgid "Name"
+msgstr ""
+
+#: patients/models.py:14 templates/dashboard/staff_dashboard.html:50
+#: templates/patients/patient_detail.html:16
+#: templates/patients/patient_list.html:28
+msgid "Phone"
+msgstr ""
+
+#: patients/models.py:17 templates/patients/patient_detail.html:14
+#: templates/patients/patient_form.html:20
+msgid "Age"
+msgstr ""
+
+#: patients/models.py:18 templates/patients/patient_detail.html:15
+#: templates/patients/patient_form.html:24
+msgid "Gender"
+msgstr ""
+
+#: patients/models.py:19
+msgid "Village/Area"
+msgstr ""
+
+#: patients/models.py:20 templates/patients/patient_detail.html:17
+#: templates/patients/patient_form.html:34
+msgid "Blood Group"
+msgstr ""
+
+#: templates/accounts/login.html:9 templates/accounts/login.html:20
+#: templates/base.html:172
+msgid "Login"
+msgstr ""
+
+#: templates/accounts/login.html:13
+msgid "Username"
+msgstr ""
+
+#: templates/accounts/login.html:17
+msgid "Password"
+msgstr ""
+
+#: templates/base.html:7 templates/base.html:129
+msgid "Dr. Gaykar Hospital"
+msgstr ""
+
+#: templates/base.html:138
+msgid "Dashboard"
+msgstr ""
+
+#: templates/base.html:141
+msgid "Patients"
+msgstr ""
+
+#: templates/base.html:144
+msgid "Register"
+msgstr ""
+
+#: templates/base.html:166
+msgid "Logout"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:7
+msgid "Doctor Dashboard"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:8
+msgid "Welcome back, Dr."
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:19
+msgid "Today's Visits"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:32
+msgid "Quick Actions"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:37
+msgid "Add Patient"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:43
+msgid "Find Patient"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:49
+msgid "Backup DB"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:62
+msgid "Recent Visits Today"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:63
+msgid "View All"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:70
+msgid "Time"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:73
+#: templates/patients/patient_detail.html:37
+#: templates/visits/visit_form.html:19 visits/models.py:25
+msgid "Diagnosis"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:74
+#: templates/dashboard/staff_dashboard.html:52
+#: templates/patients/patient_list.html:30
+msgid "Action"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:85
+#: templates/dashboard/staff_dashboard.html:64
+#: templates/patients/patient_list.html:41
+msgid "View"
+msgstr ""
+
+#: templates/dashboard/doctor_dashboard.html:92
+msgid "No visits yet today."
+msgstr ""
+
+#: templates/dashboard/staff_dashboard.html:7
+msgid "Staff Dashboard"
+msgstr ""
+
+#: templates/dashboard/staff_dashboard.html:8
+msgid "Welcome to Dr. Gaykar Hospital Portal"
+msgstr ""
+
+#: templates/dashboard/staff_dashboard.html:12
+#: templates/patients/patient_form.html:9
+#: templates/patients/patient_list.html:9
+msgid "Register New Patient"
+msgstr ""
+
+#: templates/dashboard/staff_dashboard.html:25
+msgid "Search for patients by name, phone or ID..."
+msgstr ""
+
+#: templates/dashboard/staff_dashboard.html:29
+#: templates/patients/patient_list.html:13
+msgid "Search"
+msgstr ""
+
+#: templates/dashboard/staff_dashboard.html:41
+msgid "Recently Registered Patients"
+msgstr ""
+
+#: templates/dashboard/staff_dashboard.html:48
+#: templates/patients/patient_detail.html:12
+#: templates/patients/patient_list.html:26
+msgid "ID"
+msgstr ""
+
+#: templates/dashboard/staff_dashboard.html:51
+#: templates/patients/patient_list.html:29
+msgid "Registered On"
+msgstr ""
+
+#: templates/dashboard/staff_dashboard.html:65
+#: templates/patients/patient_list.html:42
+msgid "Record Visit"
+msgstr ""
+
+#: templates/dashboard/staff_dashboard.html:72
+msgid "No patients registered today."
+msgstr ""
+
+#: templates/patients/patient_detail.html:9
+msgid "Patient Details"
+msgstr ""
+
+#: templates/patients/patient_detail.html:18
+#: templates/patients/patient_form.html:39
+msgid "Address"
+msgstr ""
+
+#: templates/patients/patient_detail.html:20
+msgid "Record New Visit"
+msgstr ""
+
+#: templates/patients/patient_detail.html:27
+msgid "Visit History"
+msgstr ""
+
+#: templates/patients/patient_detail.html:34
+msgid "By"
+msgstr ""
+
+#: templates/patients/patient_detail.html:36
+#: templates/visits/visit_form.html:15 visits/models.py:24
+msgid "Symptoms"
+msgstr ""
+
+#: templates/patients/patient_detail.html:38 visits/models.py:26
+msgid "Prescription"
+msgstr ""
+
+#: templates/patients/patient_detail.html:40
+msgid "View Prescription Photo"
+msgstr ""
+
+#: templates/patients/patient_detail.html:44
+msgid "No visit records found."
+msgstr ""
+
+#: templates/patients/patient_form.html:16
+msgid "Full Name"
+msgstr ""
+
+#: templates/patients/patient_form.html:30
+msgid "Phone Number"
+msgstr ""
+
+#: templates/patients/patient_form.html:43
+msgid "Save Patient"
+msgstr ""
+
+#: templates/patients/patient_form.html:44 templates/visits/visit_form.html:32
+msgid "Cancel"
+msgstr ""
+
+#: templates/patients/patient_list.html:8
+msgid "Patients List"
+msgstr ""
+
+#: templates/patients/patient_list.html:12
+msgid "Search by ID, Name or Phone"
+msgstr ""
+
+#: templates/patients/patient_list.html:47
+msgid "No patients found."
+msgstr ""
+
+#: templates/visits/visit_form.html:9
+msgid "Record Visit for"
+msgstr ""
+
+#: templates/visits/visit_form.html:23
+msgid "Prescription Text"
+msgstr ""
+
+#: templates/visits/visit_form.html:27
+msgid "Prescription Photo (Handwritten)"
+msgstr ""
+
+#: templates/visits/visit_form.html:31
+msgid "Save Visit"
+msgstr ""
+
+#: visits/models.py:7
+msgid "Template Name"
+msgstr ""
+
+#: visits/models.py:8
+msgid "Medication Details"
+msgstr ""
+
+#: visits/models.py:14
+msgid "Patient"
+msgstr ""
+
+#: visits/models.py:15
+msgid "Visited On"
+msgstr ""
+
+#: visits/models.py:18
+msgid "Weight"
+msgstr ""
+
+#: visits/models.py:19
+msgid "BP"
+msgstr ""
+
+#: visits/models.py:20
+msgid "Temp"
+msgstr ""
+
+#: visits/models.py:21
+msgid "Sugar"
+msgstr ""
+
+#: visits/models.py:27
+msgid "Prescription Photo"
+msgstr ""
+
+#: visits/models.py:28
+msgid "Follow-up Date"
+msgstr ""
+
+#: visits/models.py:30
+msgid "Attended By"
+msgstr ""

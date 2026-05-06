@@ -1,0 +1,19 @@
+{% load i18n %}
+<div class="space-y-1.5 w-full group">
+    {% if label %}
+    <label class="block text-[11px] font-black uppercase tracking-[0.05em] text-slate-400 ml-1 group-focus-within:text-indigo-600 transition-colors">
+        {% trans label %}
+    </label>
+    {% endif %}
+    <div class="relative">
+        {{ field }}
+        <div class="absolute inset-0 rounded-2xl border-2 border-slate-100 pointer-events-none group-focus-within:border-indigo-500/20 transition-all"></div>
+    </div>
+    {% if field.errors %}
+        {% for error in field.errors %}
+            <p class="text-[10px] font-bold text-rose-500 mt-1 ml-2 flex items-center gap-1">
+                <i class="bi bi-exclamation-circle-fill"></i> {{ error }}
+            </p>
+        {% endfor %}
+    {% endif %}
+</div>

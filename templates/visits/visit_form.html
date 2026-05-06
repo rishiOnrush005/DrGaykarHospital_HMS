@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto space-y-8 animate__animated animate__fadeIn">
+    <div class="px-2">
+        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+            {% if title == "Add to Queue" %}
+                {% trans "Add to Queue" %}
+            {% elif title == "Clinical Examination" %}
+                {% trans "Clinical Examination" %}
+            {% elif title %}
+                {{ title }}
+            {% else %}
+                {% trans "Record Visit" %}
+            {% endif %}
+        </h1>
+        <p class="text-slate-500 font-medium">{% trans "Patient" %}: {{ patient.name }}</p>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" class="space-y-6 pb-20">
+        {% csrf_token %}
+
+        <!-- Group 1: Vitals -->
+        {% if form.weight or form.bp or form.temp or form.sugar %}
+        <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 space-y-6">
+            <div class="flex items-center gap-3 text-emerald-600 font-bold text-sm uppercase tracking-widest border-b border-slate-50 pb-4">
+                <i class="bi bi-activity text-lg"></i> {% trans "Vital Signs" %}
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                {% if form.weight %}{% include 'components/input.html' with field=form.weight label="Weight (kg)" %}{% endif %}
+                {% if form.bp %}{% include 'components/input.html' with field=form.bp label="BP" %}{% endif %}
+                {% if form.temp %}{% include 'components/input.html' with field=form.temp label="Temp (°F)" %}{% endif %}
+                {% if form.sugar %}{% include 'components/input.html' with field=form.sugar label="Sugar" %}{% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Group 2: Clinical Data -->
+        {% if form.symptoms or form.diagnosis %}
+        <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 space-y-6">
+            <div class="flex items-center gap-3 text-indigo-600 font-bold text-sm uppercase tracking-widest border-b border-slate-50 pb-4">
+                <i class="bi bi-clipboard2-pulse text-lg"></i> {% trans "Clinical Data" %}
+            </div>
+            <div class="space-y-6">
+                {% if form.symptoms %}{% include 'components/input.html' with field=form.symptoms label="Symptoms" %}{% endif %}
+                {% if form.diagnosis %}{% include 'components/input.html' with field=form.diagnosis label="Diagnosis" %}{% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Group 3: Prescription -->
+        {% if form.prescription_text %}
+        <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 space-y-6">
+            <div class="flex items-center gap-3 text-amber-600 font-bold text-sm uppercase tracking-widest border-b border-slate-50 pb-4">
+                <i class="bi bi-prescription2 text-lg"></i> {% trans "Treatment Plan" %}
+            </div>
+            <div class="space-y-6">
+                {% include 'components/input.html' with field=form.prescription_text label="Prescription" %}
+                <div class="bg-slate-50 p-6 rounded-2xl border-2 border-dashed border-slate-200">
+                    <label class="text-sm font-bold text-slate-600 block mb-2">{% trans "Handwritten Photo" %}</label>
+                    {{ form.prescription_photo }}
+                </div>
+                {% if form.follow_up_date %}
+                    {% include 'components/input.html' with field=form.follow_up_date label="Next Visit Date" %}
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Bottom Actions -->
+        <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-slate-100 z-50 md:relative md:bg-transparent md:border-none md:p-0">
+            <div class="flex gap-3">
+                <button type="submit" class="flex-1 bg-slate-900 text-white font-bold py-5 rounded-[2rem] shadow-xl hover:bg-indigo-600 transition-all flex justify-center items-center gap-2">
+                    <i class="bi bi-check-circle-fill"></i> {% trans "Save Visit" %}
+                </button>
+                
+                {% if user.role == 'doctor' %}
+                <a href="{% url 'patient_detail' patient.uuid %}" class="bg-slate-100 text-slate-500 font-bold py-5 px-8 rounded-[2rem] hover:bg-slate-200 text-center">
+                    {% trans "Cancel" %}
+                </a>
+                {% else %}
+                <a href="{% url 'dashboard' %}" class="bg-slate-100 text-slate-500 font-bold py-5 px-8 rounded-[2rem] hover:bg-slate-200 text-center">
+                    {% trans "Cancel" %}
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+</div>
+
+<style>
+    textarea,
+    select,
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
+        width: 100% !important;
+        background-color: #ffffff !important;
+        border: 2px solid #cbd5e1 !important;
+        border-radius: 1rem !important;
+        padding: 0.875rem 1.25rem !important;
+        font-weight: 500 !important;
+        color: #1e293b !important;
+        outline: none !important;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+    }
+    textarea {
+        min-height: 140px !important;
+        resize: vertical !important;
+        line-height: 1.5 !important;
+    }
+    textarea[name="prescription_text"] {
+        min-height: 190px !important;
+    }
+    textarea:focus,
+    select:focus,
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    input[type="date"]:focus {
+        border-color: #4f46e5 !important;
+        box-shadow: 0 0 0 4px #e0e7ff !important;
+        background-color: #ffffff !important;
+    }
+    input[type="file"] {
+        width: 100% !important;
+        background: white !important;
+        border: 2px solid #cbd5e1 !important;
+        border-radius: 1rem !important;
+        padding: 0.875rem 1rem !important;
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+    }
+</style>
+{% endblock %}

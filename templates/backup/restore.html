@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="max-w-xl mx-auto space-y-8 animate__animated animate__fadeIn">
+    <!-- Header Section -->
+    <div class="px-2">
+        <a href="{% url 'backup_manager' %}" class="text-indigo-600 font-bold text-sm mb-4 inline-flex items-center gap-1">
+            <i class="bi bi-arrow-left"></i> {% trans "Back to Manager" %}
+        </a>
+        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">{% trans "Database Recovery" %}</h1>
+        <p class="text-slate-500 font-medium">{% trans "Upload a backup file to restore the hospital database." %}</p>
+    </div>
+
+    <div class="bg-white p-8 md:p-12 rounded-[3rem] shadow-xl shadow-rose-100 border border-slate-100 space-y-8">
+        <div class="bg-rose-50 p-6 rounded-3xl border border-rose-100 flex items-start gap-4">
+            <i class="bi bi-exclamation-triangle-fill text-rose-500 text-2xl mt-1"></i>
+            <div>
+                <h4 class="font-bold text-rose-800">{% trans "Critical Warning" %}</h4>
+                <p class="text-sm text-rose-600 leading-relaxed font-medium">
+                    {% trans "Restoring a database will completely delete all current patient records and visits. This action cannot be undone." %}
+                </p>
+            </div>
+        </div>
+
+        <form method="post" enctype="multipart/form-data" class="space-y-8">
+            {% csrf_token %}
+            
+            <div class="space-y-4 text-center">
+                <div class="bg-slate-50 w-24 h-24 rounded-[2rem] flex items-center justify-center mx-auto text-slate-300">
+                    <i class="bi bi-file-earmark-arrow-up text-5xl"></i>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-bold text-slate-600">{% trans "Select .sqlite3 File" %}</label>
+                    <input type="file" name="backup_file" accept=".sqlite3" required
+                           class="w-full bg-white border-2 border-dashed border-slate-200 rounded-3xl p-6 text-sm font-bold text-slate-400 cursor-pointer hover:border-indigo-400 hover:text-indigo-600 transition-all">
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-slate-900 text-white font-bold py-6 rounded-[2rem] shadow-2xl hover:bg-rose-600 transition-all flex justify-center items-center gap-3"
+                    onclick="return confirm('{% trans "Are you 100% sure you want to OVERWRITE the entire hospital database? All data from today will be lost." %}');">
+                <i class="bi bi-arrow-repeat"></i> {% trans "Restore & Refresh System" %}
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto space-y-8 animate__animated animate__fadeIn">
+    <div class="px-2">
+        <a href="{% url 'dashboard' %}" class="text-indigo-600 font-bold text-sm mb-4 inline-flex items-center gap-1">
+            <i class="bi bi-arrow-left"></i> {% trans "Back to Dashboard" %}
+        </a>
+        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">{% trans "Database Manager" %}</h1>
+        <p class="text-slate-500 font-medium">{% trans "Automated 10-day backup system and recovery tools." %}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Configuration Card -->
+        <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 space-y-6">
+            <div class="flex items-center gap-3 text-indigo-600 font-bold text-sm uppercase tracking-widest border-b border-slate-50 pb-4">
+                <i class="bi bi-gear-fill text-lg"></i> {% trans "Backup Settings" %}
+            </div>
+            
+            <form method="post" class="space-y-4">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="update_path">
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">{% trans "Local Backup Path" %}</label>
+                    <input type="text" name="backup_path" value="{{ config.backup_path }}" 
+                           class="w-full bg-slate-50 border-none rounded-2xl py-4 px-5 focus:ring-4 focus:ring-indigo-100 font-medium text-sm">
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-indigo-700 transition-all">
+                    {% trans "Update Path" %}
+                </button>
+            </form>
+
+            <div class="bg-slate-50 p-5 rounded-2xl space-y-2">
+                <p class="text-xs font-bold text-slate-500 italic">
+                    <i class="bi bi-info-circle mr-1"></i> {% trans "Last Automated Backup" %}:
+                </p>
+                <p class="text-sm font-bold text-slate-800">
+                    {{ config.last_backup_date|default:"Never" }}
+                </p>
+            </div>
+        </div>
+
+        <!-- PIN Management Card -->
+        <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 space-y-6">
+            <div class="flex items-center gap-3 text-rose-500 font-bold text-sm uppercase tracking-widest border-b border-slate-50 pb-4">
+                <i class="bi bi-shield-lock-fill text-lg"></i> {% trans "PIN Management" %}
+            </div>
+            
+            <form method="post" class="space-y-4">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="update_pin">
+                <div class="space-y-2">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">{% trans "Update Security PIN" %}</label>
+                    <input type="password" name="new_pin" maxlength="4" placeholder="****"
+                           class="w-full bg-slate-50 border-none rounded-2xl py-4 px-5 focus:ring-4 focus:ring-rose-100 font-mono font-bold text-center tracking-widest">
+                    <p class="text-[10px] text-slate-400 leading-relaxed px-1 font-bold">
+                        {% trans "Enter exactly 4 digits." %}
+                    </p>
+                </div>
+                <button type="submit" class="w-full bg-slate-900 text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-rose-600 transition-all">
+                    {% trans "Update PIN" %}
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+        <!-- Recovery Card (Moved inside grid) -->
+        <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 space-y-6">
+            <div class="flex items-center gap-3 text-slate-900 font-bold text-sm uppercase tracking-widest border-b border-slate-50 pb-4">
+                <i class="bi bi-arrow-counterclockwise text-lg"></i> {% trans "Data Recovery" %}
+            </div>
+            
+            <p class="text-sm text-slate-500 leading-relaxed font-medium">
+                {% trans "Upload a backup file to restore the entire hospital database." %}
+            </p>
+
+            <div class="pt-2">
+                <a href="{% url 'restore_database' %}" class="block w-full text-center bg-slate-100 text-slate-600 font-bold py-4 rounded-2xl hover:bg-rose-50 hover:text-rose-600 transition-all">
+                    <i class="bi bi-upload mr-2"></i> {% trans "Restore Database" %}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent History -->
+    <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 space-y-6">
+        <div class="flex items-center gap-3 text-emerald-600 font-bold text-sm uppercase tracking-widest border-b border-slate-50 pb-4">
+            <i class="bi bi-clock-history text-lg"></i> {% trans "Recent Backup Files" %}
+        </div>
+        
+        <div class="space-y-3">
+            {% for file in recent_backups %}
+                <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="flex items-center gap-3">
+                        <i class="bi bi-file-earmark-zip text-emerald-500 text-xl"></i>
+                        <span class="text-sm font-bold text-slate-700">{{ file }}</span>
+                    </div>
+                    <span class="text-[10px] font-bold text-slate-400 px-3 py-1 bg-white rounded-lg">{% trans "SQLITE3" %}</span>
+                </div>
+            {% empty %}
+                <p class="text-center py-6 text-slate-400 font-medium italic">{% trans "No backups found in the specified path yet." %}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

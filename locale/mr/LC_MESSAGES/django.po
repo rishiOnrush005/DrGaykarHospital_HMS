@@ -1,0 +1,669 @@
+# Marathi translations for Dr. Gaykar Hospital.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-07 00:14+0530\n"
+"PO-Revision-Date: 2026-04-23 01:45+0530\n"
+"Last-Translator: Gemini CLI\n"
+"Language-Team: Marathi\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/models.py:7
+msgid "Doctor"
+msgstr "डॉक्टर"
+
+#: accounts/models.py:8 templates/dashboard/doctor_dashboard.html:93
+msgid "Staff"
+msgstr "कर्मचारी"
+
+#: backup/models.py:16
+msgid "Backup Storage Path"
+msgstr "बॅकअप साठवणूक मार्ग"
+
+#: backup/models.py:17
+msgid "Last Backup Date"
+msgstr "शेवटच्या बॅकअपची तारीख"
+
+#: backup/models.py:18
+msgid "Auto Backup Frequency (Days)"
+msgstr "स्वयंचलित बॅकअप वारंवारता (दिवस)"
+
+#: backup/models.py:19
+msgid "Security PIN"
+msgstr "सुरक्षा पिन"
+
+#: backup/models.py:23 backup/models.py:24
+#: templates/backup/backup_manager.html:18
+msgid "Backup Settings"
+msgstr "बॅकअप सेटिंग्ज"
+
+#: backup/models.py:50
+msgid "PIN must be exactly 4 digits."
+msgstr "पिन नेमका ४ अंकांचा असावा."
+
+#: backup/views.py:41
+msgid "Backup path is required."
+msgstr ""
+
+#: backup/views.py:45
+msgid "Backup path must be an absolute path."
+msgstr ""
+
+#: backup/views.py:51
+#, python-format
+msgid "Backup path must be inside an allowed backup directory: %(allowed)s"
+msgstr ""
+
+#: backup/views.py:117
+msgid "Backup file is not a SQLite database."
+msgstr ""
+
+#: backup/views.py:124
+msgid "Backup file failed SQLite integrity checks."
+msgstr ""
+
+#: backup/views.py:132
+#, fuzzy
+#| msgid "Upload a backup file to restore the hospital database."
+msgid "Backup file does not look like a hospital database backup."
+msgstr "रुग्णालय डेटाबेस पुनर्संचयित करण्यासाठी बॅकअप फाइल अपलोड करा."
+
+#: backup/views.py:136
+msgid "Backup file is not a readable SQLite database."
+msgstr ""
+
+#: patients/models.py:7
+msgid "Male"
+msgstr "पुरुष"
+
+#: patients/models.py:8
+msgid "Female"
+msgstr "स्त्री"
+
+#: patients/models.py:9
+msgid "Other"
+msgstr "इतर"
+
+#: patients/models.py:14 templates/components/patient_card.html:6
+msgid "Patient ID"
+msgstr "रुग्ण आयडी"
+
+#: patients/models.py:15
+msgid "Name"
+msgstr "नाव"
+
+#: patients/models.py:16
+msgid "Phone"
+msgstr "फोन"
+
+#: patients/models.py:19
+msgid "Age"
+msgstr "वय"
+
+#: patients/models.py:20
+msgid "Gender"
+msgstr "लिंग"
+
+#: patients/models.py:21
+msgid "Village/Area"
+msgstr "गाव/क्षेत्र"
+
+#: patients/models.py:22
+msgid "Blood Group"
+msgstr "रक्त गट"
+
+#: templates/accounts/staff_form.html:35
+msgid "First Name"
+msgstr "पहिले नाव"
+
+#: templates/accounts/staff_form.html:36
+msgid "Last Name"
+msgstr "आडनाव"
+
+#: templates/accounts/staff_form.html:38
+#: templates/patients/patient_form.html:56
+msgid "Phone Number"
+msgstr "फोन नंबर"
+
+#: templates/patients/patient_form.html:35
+msgid "Patient Full Name"
+msgstr "रुग्णाचे पूर्ण नाव"
+
+#: templates/patients/patient_form.html:57
+msgid "Village / Area"
+msgstr "गाव / क्षेत्र"
+
+#: templates/visits/visit_form.html:31
+msgid "Weight (kg)"
+msgstr "वजन (किलो)"
+
+#: templates/visits/visit_form.html:33
+msgid "Temp (°F)"
+msgstr "तापमान (°F)"
+
+#: templates/accounts/login.html:11
+msgid "Dr. Gaykar Hospital"
+msgstr "डॉ. गायकर हॉस्पिटल"
+
+#: templates/accounts/login.html:12
+msgid "Management Portal Login"
+msgstr "व्यवस्थापन पोर्टल लॉगिन"
+
+#: templates/accounts/login.html:21
+msgid "Login failed"
+msgstr "लॉगिन अयशस्वी"
+
+#: templates/accounts/login.html:34
+msgid "Username"
+msgstr "वापरकर्ता नाव"
+
+#: templates/accounts/login.html:48
+msgid "Password"
+msgstr "पासवर्ड"
+
+#: templates/accounts/login.html:61
+msgid "Login to System"
+msgstr "सिस्टममध्ये लॉगिन करा"
+
+#: templates/accounts/staff_form.html:9
+msgid "Back to Staff List"
+msgstr "कर्मचारी यादीकडे परत"
+
+#: templates/accounts/staff_form.html:11
+msgid "Create Staff Account"
+msgstr "कर्मचारी खाते तयार करा"
+
+#: templates/accounts/staff_form.html:12
+msgid "Enter the credentials for the new staff member."
+msgstr "नवीन कर्मचाऱ्यासाठी क्रेडेन्शियल्स प्रविष्ट करा."
+
+#: templates/accounts/staff_form.html:20
+msgid "Account Credentials"
+msgstr "खाते क्रेडेन्शियल्स"
+
+#: templates/accounts/staff_form.html:31
+msgid "Personal Details"
+msgstr "वैयक्तिक तपशील"
+
+#: templates/accounts/staff_form.html:43
+msgid "Confirm and Create Account"
+msgstr "पुष्टी करा आणि खाते तयार करा"
+
+#: templates/accounts/staff_form.html:46
+msgid "Discard and Cancel"
+msgstr "रद्द करा"
+
+#: templates/accounts/staff_list.html:9
+msgid "Manage Staff"
+msgstr "कर्मचारी व्यवस्थापन"
+
+#: templates/accounts/staff_list.html:10
+msgid "Control system access for hospital personnel"
+msgstr "रुग्णालय कर्मचाऱ्यांसाठी सिस्टम प्रवेश नियंत्रित करा"
+
+#: templates/accounts/staff_list.html:14
+msgid "Add New Staff Member"
+msgstr "नवीन कर्मचारी जोडा"
+
+#: templates/accounts/staff_list.html:33
+msgid ""
+"Are you sure you want to remove this staff member? This will immediately "
+"revoke their access."
+msgstr ""
+"तुम्हाला खात्री आहे की तुम्ही या कर्मचाऱ्याला काढून टाकू इच्छिता? यामुळे त्यांचा प्रवेश त्वरित "
+"रद्द होईल."
+
+#: templates/accounts/staff_list.html:46
+msgid "No staff accounts yet"
+msgstr "अद्याप कोणतेही कर्मचारी खाते नाही"
+
+#: templates/accounts/staff_list.html:47
+msgid "Start by creating a profile for your reception or medical staff."
+msgstr "तुमच्या रिसेप्शन किंवा वैद्यकीय कर्मचाऱ्यांसाठी प्रोफाइल तयार करून सुरुवात करा."
+
+#: templates/backup/backup_manager.html:8
+msgid "Back to Dashboard"
+msgstr "डॅशबोर्डवर परत"
+
+#: templates/backup/backup_manager.html:10
+msgid "Database Manager"
+msgstr "डेटाबेस व्यवस्थापक"
+
+#: templates/backup/backup_manager.html:11
+msgid "Automated 10-day backup system and recovery tools."
+msgstr "स्वयंचलित १०-दिवसीय बॅकअप सिस्टम आणि रिकव्हरी टूल्स."
+
+#: templates/backup/backup_manager.html:25
+msgid "Local Backup Path"
+msgstr "स्थानिक बॅकअप मार्ग"
+
+#: templates/backup/backup_manager.html:30
+msgid "Update Path"
+msgstr "मार्ग अपडेट करा"
+
+#: templates/backup/backup_manager.html:36
+msgid "Last Automated Backup"
+msgstr "शेवटचा स्वयंचलित बॅकअप"
+
+#: templates/backup/backup_manager.html:47
+msgid "PIN Management"
+msgstr "पिन व्यवस्थापन"
+
+#: templates/backup/backup_manager.html:54
+msgid "Update Security PIN"
+msgstr "सुरक्षा पिन अपडेट करा"
+
+#: templates/backup/backup_manager.html:58
+msgid "Enter exactly 4 digits."
+msgstr "नेमके ४ अंक प्रविष्ट करा."
+
+#: templates/backup/backup_manager.html:62
+msgid "Update PIN"
+msgstr "पिन अपडेट करा"
+
+#: templates/backup/backup_manager.html:72
+msgid "Data Recovery"
+msgstr "डेटा रिकव्हरी"
+
+#: templates/backup/backup_manager.html:76
+msgid "Upload a backup file to restore the entire hospital database."
+msgstr "संपूर्ण रुग्णालय डेटाबेस पुनर्संचयित करण्यासाठी बॅकअप फाइल अपलोड करा."
+
+#: templates/backup/backup_manager.html:81
+msgid "Restore Database"
+msgstr "डेटाबेस पुनर्संचयित करा"
+
+#: templates/backup/backup_manager.html:90
+msgid "Recent Backup Files"
+msgstr "अलीकडील बॅकअप फाइल्स"
+
+#: templates/backup/backup_manager.html:100
+msgid "SQLITE3"
+msgstr ""
+
+#: templates/backup/backup_manager.html:103
+msgid "No backups found in the specified path yet."
+msgstr "निर्दिष्ट मार्गावर अद्याप कोणतेही बॅकअप सापडले नाहीत."
+
+#: templates/backup/pin_verify.html:11
+msgid "Security Gate"
+msgstr "सुरक्षा गेट"
+
+#: templates/backup/pin_verify.html:12
+msgid "Enter your 4-digit PIN to access DB Admin."
+msgstr "डेटाबेस ॲडमिनमध्ये प्रवेश करण्यासाठी तुमचा ४-अंकी पिन प्रविष्ट करा."
+
+#: templates/backup/pin_verify.html:24
+msgid "Verify and Unlock"
+msgstr "पडताळणी करा आणि अनलॉक करा"
+
+#: templates/backup/pin_verify.html:31
+msgid ""
+"This area contains sensitive hospital data and system configuration tools."
+msgstr "या क्षेत्रात संवेदनशील रुग्णालय डेटा आणि सिस्टम कॉन्फिगरेशन साधने आहेत."
+
+#: templates/backup/restore.html:9
+msgid "Back to Manager"
+msgstr "व्यवस्थापकाकडे परत"
+
+#: templates/backup/restore.html:11
+msgid "Database Recovery"
+msgstr "डेटाबेस रिकव्हरी"
+
+#: templates/backup/restore.html:12
+msgid "Upload a backup file to restore the hospital database."
+msgstr "रुग्णालय डेटाबेस पुनर्संचयित करण्यासाठी बॅकअप फाइल अपलोड करा."
+
+#: templates/backup/restore.html:19
+msgid "Critical Warning"
+msgstr "गंभीर चेतावणी"
+
+#: templates/backup/restore.html:21
+msgid ""
+"Restoring a database will completely delete all current patient records and "
+"visits. This action cannot be undone."
+msgstr ""
+"डेटाबेस पुनर्संचयित केल्याने सर्व वर्तमान रुग्ण रेकॉर्ड आणि भेटी पूर्णपणे हटवल्या जातील. ही "
+"क्रिया पूर्ववत केली जाऊ शकत नाही."
+
+#: templates/backup/restore.html:34
+msgid "Select .sqlite3 File"
+msgstr ".sqlite3 फाइल निवडा"
+
+#: templates/backup/restore.html:41
+#, python-format
+msgid ""
+"Are you 100%% sure you want to OVERWRITE the entire hospital database? All "
+"data from today will be lost."
+msgstr ""
+"तुम्हाला १००%% खात्री आहे की तुम्ही संपूर्ण रुग्णालय डेटाबेस ओव्हरराइट करू इच्छिता? आजचा सर्व "
+"डेटा गमावला जाईल."
+
+#: templates/backup/restore.html:42
+msgid "Restore & Refresh System"
+msgstr "पुनर्संचयित करा आणि सिस्टम रीफ्रेश करा"
+
+#: templates/base.html:32
+msgid "EN"
+msgstr ""
+
+#: templates/base.html:33
+msgid "मराठी"
+msgstr ""
+
+#: templates/components/patient_card.html:14
+msgid "New Visit"
+msgstr "नवीन भेट"
+
+#: templates/components/patient_card.html:17
+msgid "Records"
+msgstr "रेकॉर्ड्स"
+
+#: templates/components/patient_card.html:21 templates/visits/visit_form.html:9
+msgid "Add to Queue"
+msgstr "रांगेत जोडा"
+
+#: templates/dashboard/doctor_dashboard.html:9
+msgid "Good Day, Doctor"
+msgstr "नमस्कार, डॉक्टर"
+
+#: templates/dashboard/doctor_dashboard.html:11
+msgid "Welcome back, Dr."
+msgstr "पुन्हा स्वागत आहे, डॉ."
+
+#: templates/dashboard/doctor_dashboard.html:20
+msgid "Today's Completed"
+msgstr "आज पूर्ण झाले"
+
+#: templates/dashboard/doctor_dashboard.html:23
+msgid "Total examinations done today"
+msgstr "आज पूर्ण झालेली एकूण तपासणी"
+
+#: templates/dashboard/doctor_dashboard.html:33
+msgid "Add Patient"
+msgstr "रुग्ण जोडा"
+
+#: templates/dashboard/doctor_dashboard.html:34
+msgid "New registration"
+msgstr "नवीन नोंदणी"
+
+#: templates/dashboard/doctor_dashboard.html:43
+#: templates/dashboard/staff_dashboard.html:39
+msgid "Find Patient"
+msgstr "रुग्ण शोधा"
+
+#: templates/dashboard/doctor_dashboard.html:44
+msgid "Search directory"
+msgstr "डिरेक्टरी शोधा"
+
+#: templates/dashboard/doctor_dashboard.html:53
+msgid "Visit Queue"
+msgstr "भेटीची रांग"
+
+#: templates/dashboard/doctor_dashboard.html:54
+msgid "Waiting"
+msgstr "प्रतिक्षा"
+
+#: templates/dashboard/doctor_dashboard.html:74
+msgid "Examine"
+msgstr "तपासणी करा"
+
+#: templates/dashboard/doctor_dashboard.html:83
+msgid "Queue is currently empty"
+msgstr "रांग सध्या रिकामी आहे"
+
+#: templates/dashboard/doctor_dashboard.html:97
+msgid "Security"
+msgstr "सुरक्षा"
+
+#: templates/dashboard/staff_dashboard.html:8
+msgid "Hello,"
+msgstr "नमस्कार,"
+
+#: templates/dashboard/staff_dashboard.html:10
+msgid "Welcome"
+msgstr "आपले स्वागत आहे"
+
+#: templates/dashboard/staff_dashboard.html:17
+msgid "Waiting List"
+msgstr "प्रतिक्षा यादी"
+
+#: templates/dashboard/staff_dashboard.html:20
+msgid "Patients waiting for doctor"
+msgstr "रुग्ण सध्या डॉक्टरांची वाट पाहत आहेत"
+
+#: templates/dashboard/staff_dashboard.html:29
+msgid "New Patient"
+msgstr "नवीन रुग्ण"
+
+#: templates/dashboard/staff_dashboard.html:30
+msgid "Start registration"
+msgstr "नोंदणी सुरू करा"
+
+#: templates/dashboard/staff_dashboard.html:40
+msgid "Check list"
+msgstr "यादी तपासा"
+
+#: templates/dashboard/staff_dashboard.html:48
+msgid "Recent Registrations"
+msgstr "अलीकडील नोंदणी"
+
+#: templates/dashboard/staff_dashboard.html:49
+msgid "View All"
+msgstr "सर्व पहा"
+
+#: templates/patients/import.html:8
+#, fuzzy
+#| msgid "Back to Staff List"
+msgid "Back to Patients"
+msgstr "कर्मचारी यादीकडे परत"
+
+#: templates/patients/import.html:10
+#, fuzzy
+#| msgid "Patient"
+msgid "Import Patients"
+msgstr "रुग्ण"
+
+#: templates/patients/import.html:11
+msgid "Upload a UTF-8 CSV file with the required patient columns."
+msgstr ""
+
+#: templates/patients/import.html:18
+#, fuzzy
+#| msgid "Select .sqlite3 File"
+msgid "Select CSV File"
+msgstr ".sqlite3 फाइल निवडा"
+
+#: templates/patients/import.html:24
+msgid "Import CSV"
+msgstr ""
+
+#: templates/patients/patient_detail.html:9
+msgid "Back"
+msgstr "परत"
+
+#: templates/patients/patient_detail.html:22
+msgid "Years"
+msgstr "वर्षे"
+
+#: templates/patients/patient_detail.html:35
+msgid "Record New Visit"
+msgstr "नवीन भेट रेकॉर्ड करा"
+
+#: templates/patients/patient_detail.html:41
+msgid "Visit History"
+msgstr "भेटींचा इतिहास"
+
+#: templates/patients/patient_detail.html:55
+msgid "No Doctor Assigned"
+msgstr "कोणताही डॉक्टर नियुक्त केलेला नाही"
+
+#: templates/patients/patient_detail.html:64 visits/models.py:32
+msgid "Symptoms"
+msgstr "लक्षणे"
+
+#: templates/patients/patient_detail.html:68 visits/models.py:33
+msgid "Diagnosis"
+msgstr "निदान"
+
+#: templates/patients/patient_detail.html:74 visits/models.py:34
+msgid "Prescription"
+msgstr "प्रिस्क्रिप्शन"
+
+#: templates/patients/patient_detail.html:80
+msgid "Next Visit Date"
+msgstr "पुढील भेटीची तारीख"
+
+#: templates/patients/patient_detail.html:95
+msgid "View Handwritten Prescription"
+msgstr "हस्तलिखित प्रिस्क्रिप्शन पहा"
+
+#: templates/patients/patient_detail.html:103
+msgid "No visit history found for this patient."
+msgstr "या रुग्णासाठी कोणताही भेटीचा इतिहास सापडला नाही."
+
+#: templates/patients/patient_form.html:13
+msgid "Patient Registration"
+msgstr "रुग्ण नोंदणी"
+
+#: templates/patients/patient_form.html:14
+msgid "New patient record"
+msgstr "नवीन रुग्ण रेकॉर्ड"
+
+#: templates/patients/patient_form.html:30
+msgid "Personal Information"
+msgstr "वैयक्तिक माहिती"
+
+#: templates/patients/patient_form.html:52
+msgid "Contact and Address"
+msgstr "संपर्क आणि पत्ता"
+
+#: templates/patients/patient_form.html:67
+msgid "Medical Information"
+msgstr "वैद्यकीय माहिती"
+
+#: templates/patients/patient_form.html:80
+msgid "Complete Registration and Save"
+msgstr "नोंदणी पूर्ण करा आणि जतन करा"
+
+#: templates/patients/patient_list.html:8
+msgid "Patient Directory"
+msgstr "रुग्ण सूची"
+
+#: templates/patients/patient_list.html:9
+msgid "Manage and search your patient base."
+msgstr "तुमचा रुग्ण डेटा व्यवस्थापित करा आणि शोधा."
+
+#: templates/patients/patient_list.html:18
+msgid "Search by name, phone, or ID..."
+msgstr "नाव, फोन किंवा आयडी द्वारे शोधा..."
+
+#: templates/patients/patient_list.html:37
+msgid "No matches found"
+msgstr "काहीही सापडले नाही"
+
+#: templates/patients/patient_list.html:38
+msgid "Try adjusting your search terms or add a new patient."
+msgstr "तुमचे शोध शब्द बदलून पहा किंवा नवीन रुग्ण जोडा."
+
+#: templates/patients/patient_list.html:41
+msgid "Add New Patient"
+msgstr "नवीन रुग्ण जोडा"
+
+#: templates/visits/visit_form.html:11
+msgid "Clinical Examination"
+msgstr "वैद्यकीय तपासणी"
+
+#: templates/visits/visit_form.html:15
+msgid "Record Visit"
+msgstr "भेट रेकॉर्ड करा"
+
+#: templates/visits/visit_form.html:18 visits/models.py:21
+msgid "Patient"
+msgstr "रुग्ण"
+
+#: templates/visits/visit_form.html:28
+msgid "Vital Signs"
+msgstr "जीवनावश्यक चिन्हे"
+
+#: templates/visits/visit_form.html:43
+msgid "Clinical Data"
+msgstr "वैद्यकीय डेटा"
+
+#: templates/visits/visit_form.html:56
+msgid "Treatment Plan"
+msgstr "उपचार योजना"
+
+#: templates/visits/visit_form.html:61
+msgid "Handwritten Photo"
+msgstr "हस्तलिखित फोटो"
+
+#: templates/visits/visit_form.html:75
+msgid "Save Visit"
+msgstr "भेट जतन करा"
+
+#: templates/visits/visit_form.html:80 templates/visits/visit_form.html:84
+msgid "Cancel"
+msgstr "रद्द करा"
+
+#: visits/models.py:8
+msgid "Template Name"
+msgstr "टेम्पलेट नाव"
+
+#: visits/models.py:9
+msgid "Medication Details"
+msgstr "औषध तपशील"
+
+#: visits/models.py:16
+msgid "Pending"
+msgstr "प्रलंबित"
+
+#: visits/models.py:17
+msgid "Completed"
+msgstr "पूर्ण झाले"
+
+#: visits/models.py:18
+msgid "Unexamined"
+msgstr "तपासणी न झालेले"
+
+#: visits/models.py:22
+msgid "Visited On"
+msgstr "भेटीची तारीख"
+
+#: visits/models.py:23
+msgid "Status"
+msgstr "स्थिती"
+
+#: visits/models.py:26
+msgid "Weight"
+msgstr "वजन"
+
+#: visits/models.py:27
+msgid "BP"
+msgstr "रक्तदाब"
+
+#: visits/models.py:28
+msgid "Temp"
+msgstr "तापमान"
+
+#: visits/models.py:29
+msgid "Sugar"
+msgstr "साखर"
+
+#: visits/models.py:35
+msgid "Prescription Photo"
+msgstr "प्रिस्क्रिप्शन फोटो"
+
+#: visits/models.py:36
+msgid "Follow-up Date"
+msgstr "फॉलो-अप तारीख"
+
+#: visits/models.py:38
+msgid "Attended By"
+msgstr "द्वारे उपस्थित"

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="max-w-xl mx-auto space-y-8 animate__animated animate__fadeIn">
+    <!-- Header Section -->
+    <div class="px-2">
+        <a href="{% url 'staff_list' %}" class="text-indigo-600 font-bold text-sm mb-4 inline-flex items-center gap-1">
+            <i class="bi bi-arrow-left"></i> {% trans "Back to Staff List" %}
+        </a>
+        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">{% trans "Create Staff Account" %}</h1>
+        <p class="text-slate-500 font-medium">{% trans "Enter the credentials for the new staff member." %}</p>
+    </div>
+
+    <form method="post" class="space-y-6">
+        {% csrf_token %}
+
+        <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-slate-100 space-y-6">
+            <div class="flex items-center gap-3 text-indigo-600 font-bold text-sm uppercase tracking-widest border-b border-slate-50 pb-4">
+                <i class="bi bi-shield-lock text-lg"></i> {% trans "Account Credentials" %}
+            </div>
+            
+            <div class="space-y-5">
+                {% include 'components/input.html' with field=form.username label="Username" %}
+                {% include 'components/input.html' with field=form.password label="Password" %}
+            </div>
+        </div>
+
+        <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-slate-100 space-y-6">
+            <div class="flex items-center gap-3 text-emerald-600 font-bold text-sm uppercase tracking-widest border-b border-slate-50 pb-4">
+                <i class="bi bi-person-vcard text-lg"></i> {% trans "Personal Details" %}
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+                {% include 'components/input.html' with field=form.first_name label="First Name" %}
+                {% include 'components/input.html' with field=form.last_name label="Last Name" %}
+            </div>
+            {% include 'components/input.html' with field=form.phone label="Phone Number" %}
+        </div>
+
+        <div class="flex flex-col gap-3 pt-2">
+            <button type="submit" class="w-full bg-slate-900 text-white font-bold py-5 rounded-[2rem] shadow-xl hover:bg-indigo-600 transition-all flex justify-center items-center gap-2">
+                <i class="bi bi-check-circle-fill"></i> {% trans "Confirm and Create Account" %}
+            </button>
+            <a href="{% url 'staff_list' %}" class="w-full text-center py-4 text-slate-400 font-bold text-sm hover:text-slate-600">
+                {% trans "Discard and Cancel" %}
+            </a>
+        </div>
+    </form>
+</div>
+
+<style>
+    input {
+        width: 100% !important;
+        background-color: #f8fafc !important; /* slate-50 */
+        border: none !important;
+        border-radius: 1.25rem !important;
+        padding: 1rem 1.5rem !important;
+        font-weight: 500 !important;
+        color: #1e293b !important; /* slate-800 */
+        transition: all 0.2s ease !important;
+    }
+    input:focus {
+        background-color: #ffffff !important;
+        box-shadow: 0 0 0 4px #e0e7ff !important; /* indigo-100 */
+    }
+</style>
+{% endblock %}
